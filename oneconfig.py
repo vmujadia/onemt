@@ -7,9 +7,14 @@ GLOBAL_CONFIG = {
         }
 
 
-SUBWORD_MODEL_PATH="models/all_bpcc_spm.model"
+URL_SPM_MODEL="https://posteditme.sgp1.cdn.digitaloceanspaces.com/onemtbyvandan/version3b/onemtv3b_spm.model"
+URL_ONEMT_MODEL="https://posteditme.sgp1.cdn.digitaloceanspaces.com/onemtbyvandan/version3b/onemtv3b.pt"
+URL_SDIC="https://posteditme.sgp1.cdn.digitaloceanspaces.com/onemtbyvandan/version3b/dict.SRC.txt"
+URL_TDIC="https://posteditme.sgp1.cdn.digitaloceanspaces.com/onemtbyvandan/version3b/dict.TGT.txt"
+
+SUBWORD_MODEL_PATH="models/onemtv3b_spm.model"
 TRANSLATION_MODEL_FOLDER="models/"
-TRANSLATION_MODEL_PATH="models/checkpoint18.pt"
+TRANSLATION_MODEL_PATH="models/onemtv3b.pt"
 
 language_mapping = {
     "asm": "asm_Beng",

@@ -29,7 +29,9 @@ class InferenceResponse(BaseModel):
     Output response for model inference
     """
     error: bool = Field(..., example=False, title='Whether there is error')
-    results: InferenceResult = ...
+    data: str = Field(..., example='hello, my name is onemt.', title='a translated sentence')
+    languages: str = Field(..., example='eng:hin', title='language pair')
+    version: str = Field(..., example='IIITHV0.0.0.3', title='model version')
 
 
 class ErrorResponse(BaseModel):

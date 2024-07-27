@@ -87,7 +87,7 @@ def do_predict(request: Request, body: InferenceInput):
 
     print (output)
 
-    return {'error': False, "results":{'data':output, 'languages':source_language+':'+target_language, 'version':'IIITHV0.0.0.3'}}
+    return {'error': False, 'data':output, 'languages':source_language+':'+target_language, 'version':'IIITHV0.0.0.3'}
 
 
 @app.get('/about')

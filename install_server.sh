@@ -1,9 +1,6 @@
 #!/bin/bash
 
 
-virtualenv -p python3.8 venv
-
-source venv/bin/activate
 pip3 install --upgrade pip==24.0.0
 
 pip3 install -r requirements.txt
