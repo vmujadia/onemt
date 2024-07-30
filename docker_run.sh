@@ -1,13 +1,13 @@
 #!/bin/bash
 
-export JOB_NAME="onemt"
-export IMAGE="onemtv3"
+export JOB_NAME="onemt-v3"
+export IMAGE="onemt/onemtv3"
 export TAG="latest"
 export PYTHON_ENV="development"
 export API_PORT=8084
 export WORKERS=2
 export TIMEOUT=300
-export LOG_FOLDER=log/
+export LOG_FOLDER=log/onemt-v3
 
 echo ${IMAGE}:${TAG}
 
@@ -19,7 +19,7 @@ fi
 # Add your authentication command for the docker image registry here
 
 # force pull and update the image, use this in remote host only
-docker pull ${IMAGE}:${TAG}
+#docker pull ${IMAGE}:${TAG}
 
 # stop running container with same job name, if any
 if [ "$(docker ps -a | grep $JOB_NAME)" ]; then
@@ -27,13 +27,12 @@ if [ "$(docker ps -a | grep $JOB_NAME)" ]; then
 fi
 
 # start docker container
-docker run -d \
+docker run \
   --rm \
   --gpus all \
   -p ${API_PORT}:8084 \
   -e "WORKERS=${WORKERS}" \
   -e "TIMEOUT=${TIMEOUT}" \
   -e "PYTHON_ENV=${PYTHON_ENV}" \
-  -v "${LOG_FOLDER}:log" \
-  --name="${JOB_NAME}" \
-  ${IMAGE}:${TAG}
+  -v "logs:/onemt/" \
+  -t ${IMAGE}:${TAG}
